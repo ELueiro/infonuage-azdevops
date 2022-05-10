@@ -28,7 +28,8 @@ steps:
       az --version
       az group create --name $(resourceGroupName) --location $(location)
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters appName=$(webAppName)
-      displayName: 'EnvironementDev'
+  displayName: 'environement de dev'
+
 
 - task: AzureCLI@2
   inputs:
@@ -37,4 +38,4 @@ steps:
     scriptLocation: inlineScript
     inlineScript:
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters appName=$(webAppName2)
-      displayName:'EnvironementProd'
+  displayName: 'environement de prod'
